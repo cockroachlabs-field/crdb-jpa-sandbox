@@ -1,0 +1,14 @@
+.data/
+.idea/
+target/
+*.iml
+*.ipr
+*.iws
+.DS_Store
+.DS_Store?
+.clienthistory
+Thumbs.db
+*.csv
+*.log
+*.tmp
+*.gz

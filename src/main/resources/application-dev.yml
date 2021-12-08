@@ -1,0 +1,6 @@
+roach:
+  datasource:
+    readwrite:
+      url: jdbc:postgresql://192.168.1.99:26300/sandbox?sslmode=disable
+    readonly:
+      url: jdbc:postgresql://192.168.1.99:26300/sandbox?sslmode=disable&options=-c%20default_transaction_read_only=true

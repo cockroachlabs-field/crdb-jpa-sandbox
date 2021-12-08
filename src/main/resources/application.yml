@@ -1,0 +1,40 @@
+########################
+# Spring boot properties
+# http://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html
+########################
+
+spring:
+  profiles:
+    active:
+  output:
+    ansi:
+      enabled: ALWAYS
+  flyway:
+    connect-retries: 50
+    enabled: true
+    clean-on-validation-error: true
+    ignore-pending-migrations: true
+    baseline-on-migrate: true
+  jpa:
+    open-in-view: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.CockroachDB201Dialect
+    show-sql: false
+#############################
+logging:
+  pattern:
+    console: "%clr(%d{${LOG_DATEFORMAT_PATTERN:yyyy-MM-dd HH:mm:ss.SSS}}){faint} %clr(${LOG_LEVEL_PATTERN:%5p}) %clr([%logger{39}]){cyan} %m%n${LOG_EXCEPTION_CONVERSION_WORD:%wEx}"
+##############################
+roach:
+  datasource:
+    readwrite:
+      url: jdbc:postgresql://localhost:26257/sandbox?sslmode=disable
+      driver-class-name: org.postgresql.Driver
+      username: root
+      password:
+    readonly:
+      url: jdbc:postgresql://localhost:26257/sandbox?sslmode=disable&options=-c%20default_transaction_read_only=true
+      driver-class-name: org.postgresql.Driver
+      username: root
+      password:
